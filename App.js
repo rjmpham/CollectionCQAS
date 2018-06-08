@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Alert, AppRegistry, Button, StyleSheet, Text, View, Image} from 'react-native';
 
-export default class ButtonBasics extends Component {
+export default class Front extends Component {
   _onPressButton() {
     Alert.alert('You tapped the button!')
   }
@@ -28,7 +28,7 @@ export default class ButtonBasics extends Component {
           <Button
             onPress={this._onPressButton}
             title="About"
-            color="#841584"
+            color="#FF0000"
           />
         </View>
         <View style={styles.alternativeLayoutButtonContainer}>
@@ -71,6 +71,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   }
 })
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
