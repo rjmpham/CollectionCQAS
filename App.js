@@ -1,63 +1,63 @@
 // In App.js in a new project
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Alert, AppRegistry, Button, StyleSheet, ScrollView, Text, View, Image} from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+   title: 'Home',
   };
 
   _onPressButton() {
     Alert.alert('You tapped the button!')
   }
   render() {
+    {/*
     let pic = {
       uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5a7c58ed71c10b9941fae93b/1527527283463/?format=1500w'
-    };
+    };*/}
     return (
       <View style={styles.container}>
 
-        <Image source={pic} style={{
+        <Image source={require('./logo.png')} style={{
           alignSelf: 'center',
-          margin: 10,
-          height: '18%',
+          height: '40%',
           width: '100%'
         }}/>
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('Browse')}
-            title="Browse"
-            color="#008B8B"
+            title='Browse'
+            color='#008B8B'
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('About')}
-            title="About"
-            color="#FF5500"
+            title='About'
+            color='#FF5500'
           />
         </View>
         <View style={styles.alternativeLayoutButtonContainer}>
           <Button
             onPress={this._onPressButton}
-            title="Twitter"
-            color="#2ABBB2"
+            title='Twitter'
+            color='#2ABBB2'
           />
           <Button
             onPress={this._onPressButton}
-            title="Facebook"
+            title='Facebook'
           />
           <Button
             onPress={this._onPressButton}
-            title="Instagram"
-            color="#C02E4C"
+            title='Instagram'
+            color='#C02E4C'
           />
           <Button
             onPress={this._onPressButton}
-            title="Vimeo"
-            color="#2ABBB2"
+            title='Vimeo'
+            color='#2ABBB2'
           />
         </View>
       </View>
@@ -109,31 +109,31 @@ class BrowseScreen extends React.Component {
       <ScrollView>
         <View style={styles.mockMovieButtonContainer}>
           <Button
-            title="Browse1"
+            title='Browse1'
             onPress={this._onPressButton}
           />
         </View>
         <View style={styles.mockMovieButtonContainer}>
           <Button
-            title="Browse2"
+            title='Browse2'
             onPress={this._onPressButton}
           />
         </View>
         <View style={styles.mockMovieButtonContainer}>
           <Button
-            title="Browse3"
+            title='Browse3'
             onPress={this._onPressButton}
           />
         </View>
         <View style={styles.mockMovieButtonContainer}>
           <Button
-            title="Browse4"
+            title='Browse4'
             onPress={this._onPressButton}
           />
         </View>
         <View style={styles.mockMovieButtonContainer}>
           <Button
-            title="Browse5"
+            title='Browse5'
             onPress={this._onPressButton}
           />
         </View>
