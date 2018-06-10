@@ -1,16 +1,14 @@
-// In App.js in a new project
-
-import React, {Component} from 'react';
-import {Alert, AppRegistry, Button, StyleSheet, ScrollView, Text, View, Image} from 'react-native';
+import React from 'react';
+import {Alert, Button, StyleSheet, ScrollView, Text, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-   title: 'Home',
+    title: 'Home',
   };
 
   _onPressButton() {
-    Alert.alert('You tapped the button!')
+    Alert.alert('You tapped the button!');
   }
   render() {
     {/*
@@ -78,13 +76,13 @@ class AboutScreen extends React.Component {
         <Text>
           Calgary Queer Arts Society, formerly known as Fairy Tales Presentation Society, is a nonprofit organization located in Calgary, Alberta that exists to give voice to queer people and their stories. Historically, LGBTQ2A+ individuals have been suppressed, deprived of power, misrepresented and often overlooked by institutional support systems. We are committed to transforming this reality, and will continue to work passionately towards an inclusive future for all people.
 
-          The arts are an integral part of who we are. Storytelling connects us all, dissolves our differences and breaks down barriers, so that we can find aspects of ourselves in others, and of others in ourselves. Our stories are important to Calgary, which is why we are committed to creating and sharing the narratives that shape us. We use storytelling mediums and artistic endeavours to inspire thoughtful conversations that educate and strengthen communities and institutions. {"\n"}
+          The arts are an integral part of who we are. Storytelling connects us all, dissolves our differences and breaks down barriers, so that we can find aspects of ourselves in others, and of others in ourselves. Our stories are important to Calgary, which is why we are committed to creating and sharing the narratives that shape us. We use storytelling mediums and artistic endeavours to inspire thoughtful conversations that educate and strengthen communities and institutions. {'\n'}
         </Text>
         <Text style ={{fontWeight: 'bold'}}>
           Vision
         </Text>
         <Text>
-          A world where diverse queer stories are integrated, celebrated, and expected in our communities and institutions. {"\n"}
+          A world where diverse queer stories are integrated, celebrated, and expected in our communities and institutions. {'\n'}
         </Text>
         <Text style ={{fontWeight: 'bold'}}>
           Mission
@@ -102,7 +100,7 @@ class BrowseScreen extends React.Component {
     title: 'Browse',
   };
   _onPressButton() {
-    Alert.alert('You tapped the button!')
+    Alert.alert('You tapped the button!');
   }
   render() {
     return (
@@ -137,12 +135,12 @@ class BrowseScreen extends React.Component {
             onPress={this._onPressButton}
           />
         </View>
-      <Text style={{fontSize:96}}>Scroll me plz</Text>
-      <Text style={{fontSize:96}}>If you like</Text>
-      <Text style={{fontSize:96}}>Scrolling down</Text>
-      <Text style={{fontSize:96}}>Whats the best</Text>
-      <Text style={{fontSize:96}}>Framework around?</Text>
-      <Text style={{fontSize:80}}>React Native</Text>
+        <Text style={{fontSize:96}}>Scroll me plz</Text>
+        <Text style={{fontSize:96}}>If you like</Text>
+        <Text style={{fontSize:96}}>Scrolling down</Text>
+        <Text style={{fontSize:96}}>Whats the best</Text>
+        <Text style={{fontSize:96}}>Framework around?</Text>
+        <Text style={{fontSize:80}}>React Native</Text>
       </ScrollView>
     );
   }
@@ -161,8 +159,8 @@ const RootStack = createStackNavigator(
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
   buttonContainer: {
     margin: 20
@@ -175,12 +173,11 @@ const styles = StyleSheet.create({
   mockMovieButtonContainer:{
     margin: 40
   }
-})
+},);
 
 export default createStackNavigator({
-    render() {
-      return <RootStack />;
-    }
-  },
-  { headerMode: 'none' }
+  render() {
+    return <RootStack />;
+  }},
+{ headerMode: 'none' }
 );
