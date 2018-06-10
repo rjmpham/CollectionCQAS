@@ -20,6 +20,7 @@ class HomeScreen extends React.Component {
       <View style={styles.container}>
 
         <Image source={pic} style={{
+          alignSelf: 'center',
           margin: 10,
           height: '18%',
           width: '100%'
@@ -96,20 +97,52 @@ class AboutScreen extends React.Component {
   }
 }
 
-
 class BrowseScreen extends React.Component {
   static navigationOptions = {
     title: 'Browse',
   };
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
   render() {
     return (
       <ScrollView>
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
-      </View>
+        <View style={styles.mockMovieButtonContainer}>
+          <Button
+            title="Browse1"
+            onPress={this._onPressButton}
+          />
+        </View>
+        <View style={styles.mockMovieButtonContainer}>
+          <Button
+            title="Browse2"
+            onPress={this._onPressButton}
+          />
+        </View>
+        <View style={styles.mockMovieButtonContainer}>
+          <Button
+            title="Browse3"
+            onPress={this._onPressButton}
+          />
+        </View>
+        <View style={styles.mockMovieButtonContainer}>
+          <Button
+            title="Browse4"
+            onPress={this._onPressButton}
+          />
+        </View>
+        <View style={styles.mockMovieButtonContainer}>
+          <Button
+            title="Browse5"
+            onPress={this._onPressButton}
+          />
+        </View>
+      <Text style={{fontSize:96}}>Scroll me plz</Text>
+      <Text style={{fontSize:96}}>If you like</Text>
+      <Text style={{fontSize:96}}>Scrolling down</Text>
+      <Text style={{fontSize:96}}>Whats the best</Text>
+      <Text style={{fontSize:96}}>Framework around?</Text>
+      <Text style={{fontSize:80}}>React Native</Text>
       </ScrollView>
     );
   }
@@ -138,12 +171,16 @@ const styles = StyleSheet.create({
     margin: 20,
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  mockMovieButtonContainer:{
+    margin: 40
   }
 })
 
 export default createStackNavigator({
-  render() {
-    return <RootStack />;
-  }
-},
-{ headerMode: 'none' });
+    render() {
+      return <RootStack />;
+    }
+  },
+  { headerMode: 'none' }
+);
