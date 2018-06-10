@@ -1,10 +1,14 @@
 // In App.js in a new project
 
 import React, { Component } from 'react';
-import {Alert, AppRegistry, Button, StyleSheet, Text, View, Image} from 'react-native';
+import {Alert, AppRegistry, Button, StyleSheet, ScrollView, Text, View, Image} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   _onPressButton() {
     Alert.alert('You tapped the button!')
   }
@@ -17,7 +21,7 @@ class HomeScreen extends React.Component {
 
         <Image source={pic} style={{
           margin: 10,
-          height: 95,
+          height: '18%',
           width: '100%'
         }}/>
         <View style={styles.buttonContainer}>
@@ -61,27 +65,52 @@ class HomeScreen extends React.Component {
 }
 
 class AboutScreen extends React.Component {
+  static navigationOptions = {
+    title: 'About',
+  };
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
+        <Text style ={{fontWeight: 'bold'}}>
+          Who We Are
+        </Text>
+        <Text>
+          Calgary Queer Arts Society, formerly known as Fairy Tales Presentation Society, is a nonprofit organization located in Calgary, Alberta that exists to give voice to queer people and their stories. Historically, LGBTQ2A+ individuals have been suppressed, deprived of power, misrepresented and often overlooked by institutional support systems. We are committed to transforming this reality, and will continue to work passionately towards an inclusive future for all people.
+
+          The arts are an integral part of who we are. Storytelling connects us all, dissolves our differences and breaks down barriers, so that we can find aspects of ourselves in others, and of others in ourselves. Our stories are important to Calgary, which is why we are committed to creating and sharing the narratives that shape us. We use storytelling mediums and artistic endeavours to inspire thoughtful conversations that educate and strengthen communities and institutions. {"\n"}
+        </Text>
+        <Text style ={{fontWeight: 'bold'}}>
+          Vision
+        </Text>
+        <Text>
+          A world where diverse queer stories are integrated, celebrated, and expected in our communities and institutions. {"\n"}
+        </Text>
+        <Text style ={{fontWeight: 'bold'}}>
+          Mission
+        </Text>
+        <Text>
+          We use storytelling mediums to humanize social justice issues through a queer lens and provide opportunities for learning, community, and celebration in Calgary and Alberta.
+        </Text>
       </View>
     );
   }
 }
 
+
 class BrowseScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Browse',
+  };
   render() {
     return (
+      <ScrollView>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title="Go to Home"
           onPress={() => this.props.navigation.navigate('Home')}
         />
       </View>
+      </ScrollView>
     );
   }
 }
@@ -116,4 +145,5 @@ export default createStackNavigator({
   render() {
     return <RootStack />;
   }
-});
+},
+{ headerMode: 'none' });
