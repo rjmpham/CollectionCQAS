@@ -105,61 +105,272 @@ class BrowseScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-        <TouchableOpacity onPress={this._onPressButton}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
           <View
             style={{
               flexDirection: 'row',
-              height: 100,
-              padding: 20,
+              height: 154,
+              padding: 10,
             }}>
             <Image source={require('./logo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
             </Image>
-            <Text>
-              This is information about the movie.
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </Text>
 
           </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
 
-        <View style={styles.mockMovieButtonContainer}>
-          <Button
-            title='Browse1'
-            onPress={this._onPressButton}
-          />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 154,
+              padding: 10,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text style={{
+              height: '100%',
+              width: '70%'}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+      </ScrollView>
+    );
+  }
+}
+class MovieScreen extends React.Component{
+  static navigationOptions = {
+    title: 'MovieNameShouldBeHere',
+  };
+  render() {
+    return (
+      <ScrollView>
+        <View
+          style={{
+            flexDirection: 'row',
+            height: 154,
+            padding: 20,
+          }}>
+          <Image source={require('./logo.png')} style={{
+            height: '100%',
+            width: '30%',
+            padding: 20
+          }}>
+          </Image>
+          <Text style={{
+            height: '100%',
+            width: '70%'
+          }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
         </View>
-        <View style={styles.mockMovieButtonContainer}>
-          <Button
-            title='Browse2'
-            onPress={this._onPressButton}
-          />
+        <View style={{
+          padding: 20
+        }}>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
         </View>
-        <View style={styles.mockMovieButtonContainer}>
-          <Button
-            title='Browse3'
-            onPress={this._onPressButton}
-          />
+        <View style={{
+          height: 200,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          padding: 20
+        }}>
+          <Image source={require('./logo.png')} style={{
+            height: '100%',
+            width: '32%',
+          }}>
+          </Image>
+          <Image source={require('./logo.png')} style={{
+            height: '100%',
+            width: '32%',
+          }}>
+          </Image>
+          <Image source={require('./logo.png')} style={{
+            height: '100%',
+            width: '32%',
+          }}>
+          </Image>
         </View>
-        <View style={styles.mockMovieButtonContainer}>
-          <Button
-            title='Browse4'
-            onPress={this._onPressButton}
-          />
+        <View style={{
+          padding: 20
+        }}>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
         </View>
-        <View style={styles.mockMovieButtonContainer}>
-          <Button
-            title='Browse5'
-            onPress={this._onPressButton}
-          />
-        </View>
-        <Text style={{fontSize:96}}>Scroll me plz</Text>
-        <Text style={{fontSize:96}}>If you like</Text>
-        <Text style={{fontSize:96}}>Scrolling down</Text>
-        <Text style={{fontSize:96}}>Whats the best</Text>
-        <Text style={{fontSize:96}}>Framework around?</Text>
-        <Text style={{fontSize:80}}>React Native</Text>
       </ScrollView>
     );
   }
@@ -170,6 +381,7 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     About: AboutScreen,
     Browse: BrowseScreen,
+    Movie: MovieScreen,
   },
   {
     initialRouteName: 'Home',
