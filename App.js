@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, Button, StyleSheet, ScrollView, Text, View, Image} from 'react-native';
+import {Alert, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -105,6 +105,25 @@ class BrowseScreen extends React.Component {
   render() {
     return (
       <ScrollView>
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 100,
+              padding: 20,
+            }}>
+            <Image source={require('./logo.png')} style={{
+              height: '100%',
+              width: '30%'
+            }}>
+            </Image>
+            <Text>
+              This is information about the movie.
+            </Text>
+
+          </View>
+        </TouchableOpacity>
+
         <View style={styles.mockMovieButtonContainer}>
           <Button
             title='Browse1'
