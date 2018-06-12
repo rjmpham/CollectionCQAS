@@ -17,12 +17,17 @@ class HomeScreen extends React.Component {
     };*/}
     return (
       <View style={styles.container}>
-
-        <Image source={require('./logo.png')} style={{
-          alignSelf: 'center',
-          height: '40%',
+        <View style={{
+          height:'35%',
           width: '100%'
-        }}/>
+        }}
+        >
+          <Image source={require('./logoSMargins.png')} style={{
+            flex:1,
+            alignSelf: 'center',
+            resizeMode: 'contain'
+          }}/>
+        </View>
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('Browse')}
@@ -112,7 +117,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -138,7 +143,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -164,7 +169,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -190,7 +195,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -216,7 +221,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -242,7 +247,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -268,7 +273,7 @@ class BrowseScreen extends React.Component {
               height: 154,
               padding: 10,
             }}>
-            <Image source={require('./logo.png')} style={{
+            <Image source={require('./backgroundLogo.png')} style={{
               height: '100%',
               width: '30%'
             }}>
@@ -304,7 +309,7 @@ class MovieScreen extends React.Component{
             height: 154,
             padding: 20,
           }}>
-          <Image source={require('./logo.png')} style={{
+          <Image source={require('./backgroundLogo.png')} style={{
             height: '100%',
             width: '30%',
             padding: 20
@@ -342,17 +347,17 @@ class MovieScreen extends React.Component{
           justifyContent: 'space-between',
           padding: 20
         }}>
-          <Image source={require('./logo.png')} style={{
+          <Image source={require('./backgroundLogo.png')} style={{
             height: '100%',
             width: '32%',
           }}>
           </Image>
-          <Image source={require('./logo.png')} style={{
+          <Image source={require('./backgroundLogo.png')} style={{
             height: '100%',
             width: '32%',
           }}>
           </Image>
-          <Image source={require('./logo.png')} style={{
+          <Image source={require('./backgroundLogo.png')} style={{
             height: '100%',
             width: '32%',
           }}>
