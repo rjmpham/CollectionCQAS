@@ -144,7 +144,7 @@ class BrowseScreen extends React.Component {
   };
 
   componentDidMount() {
-    return fetch('http://10.13.108.206:8080/movies')
+    return fetch('http://cqascollection.us-west-1.elasticbeanstalk.com/movies')
       .then((res) => res.json())
       .then((json) => {
         // console.log(JSON.parse(json));
