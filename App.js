@@ -119,11 +119,26 @@ class MovieButton extends React.Component {
           width: '30%'
         }}>
         </Image>
-        <Text style={{
+        <View style={{
+          marginLeft: 10,
           height: '100%',
-          width: '70%'}}>
-          {this.props.movie.Plot}
-        </Text>
+          width: '70%',
+          flexDirection: 'column'
+        }}>
+          <Text style={{
+            marginBottom: 10,
+            fontWeight: 'bold',
+            fontSize: 14,
+            width: '100%',
+          }}>
+            {this.props.movie.Title}
+          </Text>
+          <Text style={{
+            flex:1
+          }}>
+            {this.props.movie.Plot}
+          </Text>
+        </View>
       </View>
     );
   }
@@ -208,6 +223,7 @@ class MovieScreen extends React.Component{
           }}>
           </Image>
           <Text style={{
+            marginLeft: 10,
             height: '100%',
             width: '70%'
           }}>
