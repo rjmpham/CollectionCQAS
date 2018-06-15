@@ -72,6 +72,7 @@ class AboutScreen extends React.Component {
   static navigationOptions = {
     title: 'About',
   };
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -100,198 +101,67 @@ class AboutScreen extends React.Component {
   }
 }
 
+class MovieButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          height: 154,
+          padding: 10,
+        }}>
+        <Image source={require('./backgroundLogo.png')} style={{
+          height: '100%',
+          width: '30%'
+        }}>
+        </Image>
+        <Text style={{
+          height: '100%',
+          width: '70%'}}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </View>
+    );
+  }
+}
+
 class BrowseScreen extends React.Component {
   static navigationOptions = {
     title: 'Browse',
   };
+
+  renderMovieButton(i) {
+    return (
+      <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Movie')}>
+        <MovieButton />
+      </TouchableOpacity>
+    );
+  }
+
+
   _onPressButton() {
     Alert.alert('You tapped the button!');
   }
+
+
   render() {
+    var movies = [{title:'one'}, {title:'two'}];
+
     return (
       <ScrollView>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Movie')}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: 154,
-              padding: 10,
-            }}>
-            <Image source={require('./backgroundLogo.png')} style={{
-              height: '100%',
-              width: '30%'
-            }}>
-            </Image>
-            <Text style={{
-              height: '100%',
-              width: '70%'}}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Text>
-
-          </View>
-        </TouchableOpacity>
+        {
+          this.renderMovieButton({title:'test'})
+        }
       </ScrollView>
     );
   }
