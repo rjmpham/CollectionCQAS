@@ -12,10 +12,6 @@ class HomeScreen extends React.Component {
     Alert.alert('You tapped the button!');
   }
   render() {
-    {/*
-    let pic = {
-      uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5a7c58ed71c10b9941fae93b/1527527283463/?format=1500w'
-    };*/}
     return (
       <View style={styles.container}>
         <View style={{
@@ -114,6 +110,9 @@ class MovieButton extends React.Component {
   }
 
   render() {
+    let pic = {
+      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'.jpg'
+    };
     return (
       <View
         style={{
@@ -121,7 +120,7 @@ class MovieButton extends React.Component {
           height: 154,
           padding: 10,
         }}>
-        <Image source={require('./backgroundLogo.png')} style={{
+        <Image source={pic} style={{
           height: '100%',
           width: '30%'
         }}>
