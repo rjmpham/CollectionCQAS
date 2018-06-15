@@ -1,6 +1,7 @@
 import React from 'react';
 import {Alert, ActivityIndicator, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
+import { FontAwesome } from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -32,36 +33,42 @@ class HomeScreen extends React.Component {
           <Button
             onPress={() => this.props.navigation.navigate('Browse')}
             title='Browse'
-            color='#008B8B'
+            color= '#D9272E'
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('About')}
             title='About'
-            color='#FF5500'
+            color='#AA198D'
           />
         </View>
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title='Twitter'
-            color='#2ABBB2'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Facebook'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Instagram'
-            color='#C02E4C'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Vimeo'
-            color='#2ABBB2'
-          />
+        <View style= {{
+          marginLeft: 20,
+          marginRight: 20,
+        }}>
+          <View style={styles.alternativeLayoutButtonContainer}>
+            <FontAwesome name="twitter-square"
+              size={50}
+              color='#1DA1F2'
+              onPress={() =>  this.props.navigation.navigate('Movie')}
+            />
+            <FontAwesome name="facebook-square"
+              size={50}
+              color='#3B5998'
+              onPress={() =>  this.props.navigation.navigate('Movie')}
+            />
+            <FontAwesome name="instagram"
+              size={50}
+              onPress={() =>  this.props.navigation.navigate('Movie')}
+            />
+            <FontAwesome name="vimeo-square"
+              size={50}
+              color='#1ab7ea'
+              onPress={() =>  this.props.navigation.navigate('Movie')}
+            />
+
+          </View>
         </View>
       </View>
     );
