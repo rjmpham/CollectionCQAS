@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
+import {Alert, ActivityIndicator, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -122,13 +122,7 @@ class MovieButton extends React.Component {
         <Text style={{
           height: '100%',
           width: '70%'}}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {this.props.movie.Plot}
         </Text>
       </View>
     );
@@ -136,14 +130,36 @@ class MovieButton extends React.Component {
 }
 
 class BrowseScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      isLoading: true,
+      movies: []
+      // movies: var movies = [{title:'one', id:1}, {title:'two', id:2}, {title:'three', id:3}];
+    };
+  }
+
   static navigationOptions = {
     title: 'Browse',
   };
 
-  renderMovieButton(i) {
+  componentDidMount() {
+    return fetch('http://10.13.108.206:8080/movies')
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(JSON.parse(json));
+        this.setState({
+          isLoading: false,
+          movies: json
+        }, () => {});
+      })
+      .catch(console.error);
+  }
+
+  renderMovieButton(movie) {
     return (
-      <TouchableOpacity onPress={() =>  this.props.navigation.navigate('Movie')}>
-        <MovieButton />
+      <TouchableOpacity key={movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
+        <MovieButton movie={movie}/>
       </TouchableOpacity>
     );
   }
@@ -155,12 +171,18 @@ class BrowseScreen extends React.Component {
 
 
   render() {
-    var movies = [{title:'one'}, {title:'two'}];
+    if (this.state.isLoading) {
+      return(
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator size="large" color="#00ff00" />
+        </View>
+      );
+    }
 
     return (
       <ScrollView>
         {
-          this.renderMovieButton({title:'test'})
+          this.state.movies.map(movie => this.renderMovieButton(movie))
         }
       </ScrollView>
     );
@@ -278,6 +300,11 @@ const styles = StyleSheet.create({
   },
   mockMovieButtonContainer:{
     margin: 40
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
   }
 },);
 
