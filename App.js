@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, ActivityIndicator, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
+import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -47,21 +47,21 @@ class HomeScreen extends React.Component {
             <FontAwesome name="twitter-square"
               size={50}
               color='#1DA1F2'
-              onPress={() =>  this.props.navigation.navigate('Movie')}
+              onPress={() => {Linking.openURL('https://twitter.com/FairyTalesYYC')}}
             />
             <FontAwesome name="facebook-square"
               size={50}
               color='#3B5998'
-              onPress={() =>  this.props.navigation.navigate('Movie')}
+              onPress={() => {Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}}
             />
             <FontAwesome name="instagram"
               size={50}
-              onPress={() =>  this.props.navigation.navigate('Movie')}
+              onPress={() => {Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}}
             />
             <FontAwesome name="vimeo-square"
               size={50}
               color='#1ab7ea'
-              onPress={() =>  this.props.navigation.navigate('Movie')}
+              onPress={() => {Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}}
             />
 
           </View>
@@ -111,24 +111,24 @@ class MovieButton extends React.Component {
 
   render() {
     let pic = {
-      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'.jpg'
+      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'-thumb.jpg'
     };
     return (
       <View
         style={{
           flexDirection: 'row',
-          height: 154,
+          height: 200,
           padding: 10,
         }}>
         <Image source={pic} style={{
           height: '100%',
-          width: '30%'
+          width: 125
         }}>
         </Image>
         <View style={{
+          flex: 1,
           marginLeft: 10,
           height: '100%',
-          width: '70%',
           flexDirection: 'column'
         }}>
           <Text style={{
