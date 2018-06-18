@@ -196,6 +196,7 @@ class BrowseScreen extends React.Component {
             'Movie',
             {
               datum: datum,
+              movietitle: datum.movie.title,
               imguri: this.state.imguri
             }
           )
@@ -231,9 +232,12 @@ class BrowseScreen extends React.Component {
 }
 
 class MovieScreen extends React.Component{
-  static navigationOptions = {
-    title: 'MovieNameShouldBeHere',
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam('movietitle', 'Movie')
+    };
   };
+
   render() {
     const datum = this.props.navigation.getParam('datum');
     const imguri = this.props.navigation.getParam('imguri');
@@ -349,7 +353,7 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
-    headerMode: 'none'
+    // headerMode: 'none'
   }
 );
 
