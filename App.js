@@ -111,7 +111,7 @@ class MovieButton extends React.Component {
 
   render() {
     let pic = {
-      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost' + this.props.datum.movie.posterthumb
+      uri:this.props.imguri + this.props.datum.movie.posterthumb
     };
     return (
       <View
@@ -189,8 +189,18 @@ class BrowseScreen extends React.Component {
 
   renderMovieButton(datum) {
     return (
-      <TouchableOpacity key={datum.movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
-        <MovieButton datum={datum}/>
+      <TouchableOpacity
+        key={datum.movie.id}
+        onPress={
+          () =>  this.props.navigation.navigate(
+            'Movie',
+            {
+              datum: datum,
+              imguri: this.state.imguri
+            }
+          )
+        } >
+        <MovieButton datum={datum} imguri={this.state.imguri} />
       </TouchableOpacity>
     );
   }
@@ -225,6 +235,12 @@ class MovieScreen extends React.Component{
     title: 'MovieNameShouldBeHere',
   };
   render() {
+    const datum = this.props.navigation.getParam('datum');
+    const imguri = this.props.navigation.getParam('imguri');
+    const pic = {
+      uri: imguri + datum.movie.poster
+    };
+
     return (
       <ScrollView>
         <View
@@ -233,7 +249,7 @@ class MovieScreen extends React.Component{
             height: 154,
             padding: 20,
           }}>
-          <Image source={require('./backgroundLogo.png')} style={{
+          <Image source={pic} style={{
             height: '100%',
             width: '30%',
             padding: 20
@@ -244,13 +260,7 @@ class MovieScreen extends React.Component{
             height: '100%',
             width: '70%'
           }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {datum.movie.plotfull}
           </Text>
         </View>
         <View style={{
