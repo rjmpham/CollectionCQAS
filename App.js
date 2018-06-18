@@ -111,7 +111,7 @@ class MovieButton extends React.Component {
 
   render() {
     let pic = {
-      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'-thumb.jpg'
+      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost' + this.props.datum.movie.posterthumb
     };
     return (
       <View
@@ -137,12 +137,12 @@ class MovieButton extends React.Component {
             fontSize: 14,
             width: '100%',
           }}>
-            {this.props.movie.Title}
+            {this.props.datum.movie.title}
           </Text>
           <Text style={{
             flex:1
           }}>
-            {this.props.movie.Plot}
+            {this.props.datum.movie.plot}
           </Text>
         </View>
       </View>
@@ -155,7 +155,9 @@ class BrowseScreen extends React.Component {
     super(props);
     this.state={
       isLoading: true,
-      movies: []
+      data: [],
+      imguri: 'https://s3-us-west-1.amazonaws.com/cqasimagehost',
+      nextpage: 0
       // movies: var movies = [{title:'one', id:1}, {title:'two', id:2}, {title:'three', id:3}];
     };
   }
@@ -169,18 +171,26 @@ class BrowseScreen extends React.Component {
       .then((res) => res.json())
       .then((json) => {
         // console.log(JSON.parse(json));
-        this.setState({
-          isLoading: false,
-          movies: json
-        }, () => {});
+        if (json.response === true) {
+          // console.log(json.data);
+          this.setState({
+            isLoading: false,
+            data: json.data,
+            imguri: json.img,
+            nextpage: json.nextpage
+          }, () => {});
+        } else {
+          console.error('failed to query api');
+        }
+        //FIXME: Else show error and ask to retry.
       })
       .catch(console.error);
   }
 
-  renderMovieButton(movie) {
+  renderMovieButton(datum) {
     return (
-      <TouchableOpacity key={movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
-        <MovieButton movie={movie}/>
+      <TouchableOpacity key={datum.movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
+        <MovieButton datum={datum}/>
       </TouchableOpacity>
     );
   }
@@ -203,7 +213,7 @@ class BrowseScreen extends React.Component {
     return (
       <ScrollView>
         {
-          this.state.movies.map(movie => this.renderMovieButton(movie))
+          this.state.data.map(datum => this.renderMovieButton(datum))
         }
       </ScrollView>
     );
