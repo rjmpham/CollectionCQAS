@@ -1,19 +1,11 @@
 import React from 'react';
 import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
-import { FontAwesome,Ionicons, Icon} from '@expo/vector-icons';
-import HeaderButtons from 'react-navigation-header-buttons';
+import { FontAwesome } from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
-    headerRight: (
-      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
-        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="add" iconName="ios-search" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
-      </HeaderButtons>
-    ),
   };
 
   _onPressButton() {
@@ -82,13 +74,6 @@ class HomeScreen extends React.Component {
 class AboutScreen extends React.Component {
   static navigationOptions = {
     title: 'About',
-    headerRight: (
-      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
-        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="add" iconName="ios-search" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
-      </HeaderButtons>
-    ),
   };
 
   render() {
@@ -126,7 +111,7 @@ class MovieButton extends React.Component {
 
   render() {
     let pic = {
-      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost' + this.props.datum.movie.posterthumb
+      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'-thumb.jpg'
     };
     return (
       <View
@@ -152,12 +137,12 @@ class MovieButton extends React.Component {
             fontSize: 14,
             width: '100%',
           }}>
-            {this.props.datum.movie.title}
+            {this.props.movie.Title}
           </Text>
           <Text style={{
             flex:1
           }}>
-            {this.props.datum.movie.plot}
+            {this.props.movie.Plot}
           </Text>
         </View>
       </View>
@@ -170,22 +155,13 @@ class BrowseScreen extends React.Component {
     super(props);
     this.state={
       isLoading: true,
-      data: [],
-      imguri: 'https://s3-us-west-1.amazonaws.com/cqasimagehost',
-      nextpage: 0
+      movies: []
       // movies: var movies = [{title:'one', id:1}, {title:'two', id:2}, {title:'three', id:3}];
     };
   }
 
   static navigationOptions = {
     title: 'Browse',
-    headerRight: (
-      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
-        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="add" iconName="ios-search" onPress={() => console.warn('add')} />
-        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
-      </HeaderButtons>
-    ),
   };
 
   componentDidMount() {
@@ -193,26 +169,18 @@ class BrowseScreen extends React.Component {
       .then((res) => res.json())
       .then((json) => {
         // console.log(JSON.parse(json));
-        if (json.response === true) {
-          // console.log(json.data);
-          this.setState({
-            isLoading: false,
-            data: json.data,
-            imguri: json.img,
-            nextpage: json.nextpage
-          }, () => {});
-        } else {
-          console.error('failed to query api');
-        }
-        //FIXME: Else show error and ask to retry.
+        this.setState({
+          isLoading: false,
+          movies: json
+        }, () => {});
       })
       .catch(console.error);
   }
 
-  renderMovieButton(datum) {
+  renderMovieButton(movie) {
     return (
-      <TouchableOpacity key={datum.movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
-        <MovieButton datum={datum}/>
+      <TouchableOpacity key={movie.id} onPress={() =>  this.props.navigation.navigate('Movie')}>
+        <MovieButton movie={movie}/>
       </TouchableOpacity>
     );
   }
@@ -235,7 +203,7 @@ class BrowseScreen extends React.Component {
     return (
       <ScrollView>
         {
-          this.state.data.map(datum => this.renderMovieButton(datum))
+          this.state.movies.map(movie => this.renderMovieButton(movie))
         }
       </ScrollView>
     );
@@ -244,11 +212,6 @@ class BrowseScreen extends React.Component {
 class MovieScreen extends React.Component{
   static navigationOptions = {
     title: 'MovieNameShouldBeHere',
-    headerRight: (
-      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
-        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
-      </HeaderButtons>
-    ),
   };
   render() {
     return (
