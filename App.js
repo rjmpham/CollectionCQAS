@@ -1,12 +1,24 @@
 import React from 'react';
 import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
-import { FontAwesome } from '@expo/vector-icons';
+import {FontAwesome} from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
+  static navigationOptions =({navigation})=> ({
     title: 'Home',
-  };
+    headerRight:(
+      <TouchableOpacity
+        style={{
+          marginRight:10
+        }}
+        onPress={() => navigation.navigate('Browse')}>
+        <FontAwesome name='search'
+          size={35}
+          color='#000'
+        />
+      </TouchableOpacity>
+    )
+  });
 
   _onPressButton() {
     Alert.alert('You tapped the button!');
