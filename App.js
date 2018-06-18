@@ -1,6 +1,7 @@
 import React from 'react';
-import {Alert, ActivityIndicator, Button, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
+import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
+import { FontAwesome } from '@expo/vector-icons';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,10 +12,6 @@ class HomeScreen extends React.Component {
     Alert.alert('You tapped the button!');
   }
   render() {
-    {/*
-    let pic = {
-      uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5a7c58ed71c10b9941fae93b/1527527283463/?format=1500w'
-    };*/}
     return (
       <View style={styles.container}>
         <View style={{
@@ -32,36 +29,42 @@ class HomeScreen extends React.Component {
           <Button
             onPress={() => this.props.navigation.navigate('Browse')}
             title='Browse'
-            color='#008B8B'
+            color= '#D9272E'
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => this.props.navigation.navigate('About')}
             title='About'
-            color='#FF5500'
+            color='#AA198D'
           />
         </View>
-        <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title='Twitter'
-            color='#2ABBB2'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Facebook'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Instagram'
-            color='#C02E4C'
-          />
-          <Button
-            onPress={this._onPressButton}
-            title='Vimeo'
-            color='#2ABBB2'
-          />
+        <View style= {{
+          marginLeft: 20,
+          marginRight: 20,
+        }}>
+          <View style={styles.alternativeLayoutButtonContainer}>
+            <FontAwesome name="twitter-square"
+              size={50}
+              color='#1DA1F2'
+              onPress={() => {Linking.openURL('https://twitter.com/FairyTalesYYC')}}
+            />
+            <FontAwesome name="facebook-square"
+              size={50}
+              color='#3B5998'
+              onPress={() => {Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}}
+            />
+            <FontAwesome name="instagram"
+              size={50}
+              onPress={() => {Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}}
+            />
+            <FontAwesome name="vimeo-square"
+              size={50}
+              color='#1ab7ea'
+              onPress={() => {Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}}
+            />
+
+          </View>
         </View>
       </View>
     );
@@ -107,22 +110,25 @@ class MovieButton extends React.Component {
   }
 
   render() {
+    let pic = {
+      uri:'https://s3-us-west-1.amazonaws.com/cqasimagehost/images/' + this.props.movie.imdbID +'-thumb.jpg'
+    };
     return (
       <View
         style={{
           flexDirection: 'row',
-          height: 154,
+          height: 200,
           padding: 10,
         }}>
-        <Image source={require('./backgroundLogo.png')} style={{
+        <Image source={pic} style={{
           height: '100%',
-          width: '30%'
+          width: 125
         }}>
         </Image>
         <View style={{
+          flex: 1,
           marginLeft: 10,
           height: '100%',
-          width: '70%',
           flexDirection: 'column'
         }}>
           <Text style={{
