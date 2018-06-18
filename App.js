@@ -47,21 +47,21 @@ class HomeScreen extends React.Component {
             <FontAwesome name="twitter-square"
               size={50}
               color='#1DA1F2'
-              onPress={() => {Linking.openURL('https://twitter.com/FairyTalesYYC')}}
+              onPress={() => Linking.openURL('https://twitter.com/FairyTalesYYC')}
             />
             <FontAwesome name="facebook-square"
               size={50}
               color='#3B5998'
-              onPress={() => {Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}}
+              onPress={() => Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}
             />
             <FontAwesome name="instagram"
               size={50}
-              onPress={() => {Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}}
+              onPress={() => Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}
             />
             <FontAwesome name="vimeo-square"
               size={50}
               color='#1ab7ea'
-              onPress={() => {Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}}
+              onPress={() => Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}
             />
 
           </View>
@@ -219,6 +219,7 @@ class BrowseScreen extends React.Component {
     );
   }
 }
+
 class MovieScreen extends React.Component{
   static navigationOptions = {
     title: 'MovieNameShouldBeHere',
@@ -305,18 +306,6 @@ class MovieScreen extends React.Component{
   }
 }
 
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    About: AboutScreen,
-    Browse: BrowseScreen,
-    Movie: MovieScreen,
-  },
-  {
-    initialRouteName: 'Home',
-  }
-);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -340,9 +329,22 @@ const styles = StyleSheet.create({
   }
 },);
 
-export default createStackNavigator({
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    About: AboutScreen,
+    Browse: BrowseScreen,
+    Movie: MovieScreen,
+  },
+  {
+    initialRouteName: 'Home',
+    headerMode: 'none'
+  }
+);
+
+export default class App extends React.Component {
   render() {
     return <RootStack />;
-  }},
-{ headerMode: 'none' }
-);
+  }
+}
