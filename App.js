@@ -308,10 +308,11 @@ class MovieScreen extends React.Component{
             height: 154,
             padding: 20,
           }}>
-          <Image source={pic} style={{
-            height: '100%',
-            width: '30%',
-            padding: 20
+          <Image source={pic} resizeMode='center' style={{
+            flex: 1,
+            alignSelf: 'stretch',
+            height: undefined,
+            width: undefined
           }}>
           </Image>
           <Text style={{
@@ -319,20 +320,19 @@ class MovieScreen extends React.Component{
             height: '100%',
             width: '70%'
           }}>
-            {datum.movie.plotfull}
+            <Text>Year: {datum.movie.year} {'\n'}</Text>
+            <Text>Rating: {datum.movie.rated} {'\n'}</Text>
+            <Text>Awards: {datum.movie.awards} {'\n'}</Text>
+            <Text>Directors: {JSON.parse(datum.movie.directorobj).map(d => d.text).join(', ')} {'\n'}</Text>
+            <Text>Writers: {JSON.parse(datum.movie.writerobj).map(d => d.text).join(', ')} {'\n'}</Text>
+            <Text>Genres: {JSON.parse(datum.movie.genreobj).map(d => d.text).join(', ')} {'\n'}</Text>
           </Text>
         </View>
         <View style={{
           padding: 20
         }}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {datum.movie.plotfull}
           </Text>
         </View>
         <View style={{
