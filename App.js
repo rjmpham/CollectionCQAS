@@ -1,24 +1,20 @@
 import React from 'react';
 import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
-import {FontAwesome} from '@expo/vector-icons';
+import {FontAwesome, Ionicons} from '@expo/vector-icons';
+import HeaderButtons from 'react-navigation-header-buttons';
 
 class HomeScreen extends React.Component {
-  static navigationOptions =({navigation})=> ({
+  static navigationOptions = {
     title: 'Home',
-    headerRight:(
-      <TouchableOpacity
-        style={{
-          marginRight:10
-        }}
-        onPress={() => navigation.navigate('Browse')}>
-        <FontAwesome name='search'
-          size={35}
-          color='#000'
-        />
-      </TouchableOpacity>
+    headerRight: (
+      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
+        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="search" iconName="ios-search" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
+      </HeaderButtons>
     )
-  });
+  };
 
   _onPressButton() {
     Alert.alert('You tapped the button!');
@@ -86,6 +82,13 @@ class HomeScreen extends React.Component {
 class AboutScreen extends React.Component {
   static navigationOptions = {
     title: 'About',
+    headerRight: (
+      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
+        <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="search" iconName="ios-search" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
+      </HeaderButtons>
+    )
   };
 
   render() {
@@ -176,6 +179,13 @@ class BrowseScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Browse',
+    headerRight: (
+      <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
+        <HeaderButtons.Item title="cart" iconName="ios-cart" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="search" iconName="ios-search" onPress={() => console.warn('add')} />
+        <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
+      </HeaderButtons>
+    )
   };
 
   componentDidMount() {
@@ -185,6 +195,8 @@ class BrowseScreen extends React.Component {
         // console.log(JSON.parse(json));
         if (json.response === true) {
           // console.log(json.data);
+          // json.data.map(d => console.log(d.movie.id));
+
           this.setState({
             isLoading: false,
             data: json.data,
@@ -246,7 +258,12 @@ class BrowseScreen extends React.Component {
 class MovieScreen extends React.Component{
   static navigationOptions = ({ navigation }) => {
     return {
-      title: navigation.getParam('movietitle', 'Movie')
+      title: navigation.getParam('movietitle', 'Movie'),
+      headerRight: (
+        <HeaderButtons IconComponent={Ionicons} OverflowIcon={<Ionicons name="ios-more" size={23} color="blue" />} iconSize={23} color="blue">
+          <HeaderButtons.Item title="add" iconName="ios-cart" onPress={() => console.warn('add')} />
+        </HeaderButtons>
+      )
     };
   };
 
