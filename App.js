@@ -170,6 +170,7 @@ class BrowseScreen extends React.Component {
     super(props);
     this.state={
       isLoading: true,
+      isLoadingMore: false,
       data: [],
       imguri: 'https://s3-us-west-1.amazonaws.com/cqasimagehost',
       nextpage: 0
@@ -234,7 +235,21 @@ class BrowseScreen extends React.Component {
     );
   }
 
+  getMoreData() {
+    // this.state.data.nextpage
+    return fetch('http://cqascollection.us-west-1.elasticbeanstalk.com/movies?page=' + this.state.nextpage)
+      .then((res) => res.json())
+      .then((json) => {
+        const newdata = this.state.data.concat(json.data);
 
+        this.setState({
+          isLoadingMore: false,
+          data: newdata,
+          imguri: json.img,
+          nextpage: json.nextpage
+        }, () => {});
+      }).catch(console.error);
+  }
 
 
   render() {
@@ -251,6 +266,10 @@ class BrowseScreen extends React.Component {
         data = {this.state.data}
         keyExtractor = {(item) => item.movie.id}
         renderItem = {({item}) => this.renderMovieButton(item)}
+        onEndReached = {() =>
+          this.setState({isLoadingMore: true}, () => this.getMoreData())
+        }
+        onEndThreshold = {0}
       />
     );
   }
