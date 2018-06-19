@@ -93,25 +93,31 @@ class AboutScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style ={{fontWeight: 'bold'}}>
+      <View style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 30,
+        marginRight: 30
+      }}>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>
           Who We Are
         </Text>
-        <Text>
+        <Text style={{textAlign: 'center', fontSize: 15}}>
           Calgary Queer Arts Society, formerly known as Fairy Tales Presentation Society, is a nonprofit organization located in Calgary, Alberta that exists to give voice to queer people and their stories. Historically, LGBTQ2A+ individuals have been suppressed, deprived of power, misrepresented and often overlooked by institutional support systems. We are committed to transforming this reality, and will continue to work passionately towards an inclusive future for all people.
 
           The arts are an integral part of who we are. Storytelling connects us all, dissolves our differences and breaks down barriers, so that we can find aspects of ourselves in others, and of others in ourselves. Our stories are important to Calgary, which is why we are committed to creating and sharing the narratives that shape us. We use storytelling mediums and artistic endeavours to inspire thoughtful conversations that educate and strengthen communities and institutions. {'\n'}
         </Text>
-        <Text style ={{fontWeight: 'bold'}}>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>
           Vision
         </Text>
-        <Text>
+        <Text style={{textAlign: 'center', fontSize: 15}}>
           A world where diverse queer stories are integrated, celebrated, and expected in our communities and institutions. {'\n'}
         </Text>
-        <Text style ={{fontWeight: 'bold'}}>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>
           Mission
         </Text>
-        <Text>
+        <Text style={{textAlign: 'center', fontSize: 15}}>
           We use storytelling mediums to humanize social justice issues through a queer lens and provide opportunities for learning, community, and celebration in Calgary and Alberta.
         </Text>
       </View>
