@@ -305,16 +305,23 @@ class MovieScreen extends React.Component{
   render() {
     const datum = this.props.navigation.getParam('datum');
     const imguri = this.props.navigation.getParam('imguri');
-    const pic = {
-      uri: imguri + datum.movie.poster
-    };
+    let pic;
+    if (datum.movie.posterexists) {
+      pic = {
+        uri: imguri + datum.movie.poster
+      };
+    } else {
+      pic = {
+        uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5ab9487003ce648281505148/1522092181933/FAIRY+TALES+CALGARY%27S+QUEER+FILM+FEST.png?format=500w'
+      };
+    }
 
     return (
       <ScrollView>
         <View
           style={{
             flexDirection: 'row',
-            height: 154,
+            height: 300,
             padding: 20,
           }}>
           <Image source={pic} resizeMode='center' style={{
@@ -327,7 +334,7 @@ class MovieScreen extends React.Component{
           <Text style={{
             marginLeft: 10,
             height: '100%',
-            width: '70%'
+            width: '50%'
           }}>
             <Text>Year: {datum.movie.year} {'\n'}</Text>
             <Text>Rating: {datum.movie.rated} {'\n'}</Text>
