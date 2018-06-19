@@ -131,9 +131,18 @@ class MovieButton extends React.Component {
   }
 
   render() {
-    let pic = {
-      uri:this.props.imguri + this.props.datum.movie.posterthumb
-    };
+    let pic;
+
+    if (this.props.datum.movie.posterexists) {
+      pic = {
+        uri:this.props.imguri + this.props.datum.movie.posterthumb
+      };
+    } else {
+      pic = {
+        uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5ab9487003ce648281505148/1522092181933/FAIRY+TALES+CALGARY%27S+QUEER+FILM+FEST.png?format=500w'
+      };
+    }
+
     return (
       <View
         style={{
