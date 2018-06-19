@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, ActivityIndicator, Button, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
+import {Alert, ActivityIndicator, Button, FlatList, Linking, StyleSheet, ScrollView, Text, TouchableOpacity, View, Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
 import HeaderButtons from 'react-navigation-header-buttons';
@@ -211,10 +211,14 @@ class BrowseScreen extends React.Component {
       .catch(console.error);
   }
 
+
+  _onPressButton() {
+    Alert.alert('You tapped the button!');
+  }
+
   renderMovieButton(datum) {
     return (
       <TouchableOpacity
-        key={datum.movie.id}
         onPress={
           () =>  this.props.navigation.navigate(
             'Movie',
@@ -231,9 +235,6 @@ class BrowseScreen extends React.Component {
   }
 
 
-  _onPressButton() {
-    Alert.alert('You tapped the button!');
-  }
 
 
   render() {
@@ -246,11 +247,11 @@ class BrowseScreen extends React.Component {
     }
 
     return (
-      <ScrollView>
-        {
-          this.state.data.map(datum => this.renderMovieButton(datum))
-        }
-      </ScrollView>
+      <FlatList
+        data = {this.state.data}
+        keyExtractor = {(item) => item.movie.id}
+        renderItem = {({item}) => this.renderMovieButton(item)}
+      />
     );
   }
 }
