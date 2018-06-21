@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation';
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
 import HeaderButtons from 'react-navigation-header-buttons';
 
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
@@ -14,6 +15,7 @@ class HomeScreen extends React.Component {
         <HeaderButtons.Item title="select" onPress={() => console.warn('edit')} />
       </HeaderButtons>
     )
+
   };
 
   _onPressButton() {
@@ -55,21 +57,21 @@ class HomeScreen extends React.Component {
             <FontAwesome name="twitter-square"
               size={50}
               color='#1DA1F2'
-              onPress={() => Linking.openURL('https://twitter.com/FairyTalesYYC')}
+              onPress={() => {Linking.openURL('https://twitter.com/FairyTalesYYC')}}
             />
             <FontAwesome name="facebook-square"
               size={50}
               color='#3B5998'
-              onPress={() => Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}
+              onPress={() => {Linking.openURL('https://www.facebook.com/fairyfilmfestyyc')}}
             />
             <FontAwesome name="instagram"
               size={50}
-              onPress={() => Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}
+              onPress={() => {Linking.openURL('https://www.instagram.com/fairytalesfilmfest/')}}
             />
             <FontAwesome name="vimeo-square"
               size={50}
               color='#1ab7ea'
-              onPress={() => Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}
+              onPress={() => {Linking.openURL('https://vimeo.com/fairytalesqueerfilmfest')}}
             />
 
           </View>
@@ -142,7 +144,7 @@ class MovieButton extends React.Component {
         uri:'https://static1.squarespace.com/static/5a79eedcdc2b4ab4d004c90a/t/5ab9487003ce648281505148/1522092181933/FAIRY+TALES+CALGARY%27S+QUEER+FILM+FEST.png?format=500w'
       };
     }
-
+    
     return (
       <View
         style={{
@@ -167,12 +169,12 @@ class MovieButton extends React.Component {
             fontSize: 14,
             width: '100%',
           }}>
-            {this.props.datum.movie.title}
+            {this.props.movie.Title}
           </Text>
           <Text style={{
             flex:1
           }}>
-            {this.props.datum.movie.plot}
+            {this.props.movie.Plot}
           </Text>
         </View>
       </View>
@@ -189,6 +191,7 @@ class BrowseScreen extends React.Component {
       data: [],
       imguri: 'https://s3-us-west-1.amazonaws.com/cqasimagehost',
       nextpage: 0
+
       // movies: var movies = [{title:'one', id:1}, {title:'two', id:2}, {title:'three', id:3}];
     };
   }
@@ -226,7 +229,6 @@ class BrowseScreen extends React.Component {
       })
       .catch(console.error);
   }
-
 
   _onPressButton() {
     Alert.alert('You tapped the button!');
@@ -289,7 +291,6 @@ class BrowseScreen extends React.Component {
     );
   }
 }
-
 class MovieScreen extends React.Component{
   static navigationOptions = ({ navigation }) => {
     return {
@@ -301,7 +302,6 @@ class MovieScreen extends React.Component{
       )
     };
   };
-
   render() {
     const datum = this.props.navigation.getParam('datum');
     const imguri = this.props.navigation.getParam('imguri');
@@ -329,6 +329,7 @@ class MovieScreen extends React.Component{
             alignSelf: 'stretch',
             height: undefined,
             width: undefined
+
           }}>
           </Image>
           <Text style={{
@@ -391,6 +392,18 @@ class MovieScreen extends React.Component{
   }
 }
 
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    About: AboutScreen,
+    Browse: BrowseScreen,
+    Movie: MovieScreen,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -414,22 +427,9 @@ const styles = StyleSheet.create({
   }
 },);
 
-
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    About: AboutScreen,
-    Browse: BrowseScreen,
-    Movie: MovieScreen,
-  },
-  {
-    initialRouteName: 'Home',
-    // headerMode: 'none'
-  }
-);
-
-export default class App extends React.Component {
+export default createStackNavigator({
   render() {
     return <RootStack />;
-  }
-}
+  }},
+{ headerMode: 'none' }
+);
