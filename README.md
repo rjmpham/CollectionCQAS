@@ -1,3 +1,5 @@
+This project was intended as a proof of concept for a cross-platform mobile app for the use of the Calgary Queer Arts Society (CQAS). The purpose of the application was to allow people to browse the CQAS movie lending library, with goals to make it so that they could even request movies to borrow. Many of the functionalities relied on Amazon Web Service accounts that have been repurposed. The solutions required for the charity involve a backend that handles data that are not reflected by the intended goal of this application. This project has since been retired for alternative solutions.
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
